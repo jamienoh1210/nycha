@@ -1,0 +1,29 @@
+import geopandas as gpd
+import pandas as pd
+
+steam = "cleaned_data/combined_steam_2024.csv"
+steamdf = pd.read_csv(steam)
+steamgdf = gpd.GeoDataFrame(steamdf, geometry=gpd.points_from_xy(steamdf.longitude_nycha, steamdf.latitude_nycha))
+steamgdf = steamgdf.set_crs(epsg=4326)
+
+electricity = "cleaned_data/combined_electricity_2024.csv"
+electricitydf = pd.read_csv(electricity)
+electricitygdf = gpd.GeoDataFrame(electricitydf, geometry=gpd.points_from_xy(electricitydf.longitude_nycha, electricitydf.latitude_nycha))
+electricitygdf = electricitygdf.set_crs(epsg=4326)
+
+gas = "cleaned_data/combined_heating_gas_2024.csv"
+gasdf = pd.read_csv(gas)
+gasgdf = gpd.GeoDataFrame(gasdf, geometry=gpd.points_from_xy(gasdf.longitude_nycha, gasdf.latitude_nycha))
+gasgdf = gasgdf.set_crs(epsg=4326)  
+
+for name, gdf in [("Steam", steamgdf), ("Electricity", electricitygdf), ("Gas", gasgdf)]:
+    print(f"\n{'='*40}")
+    print(f"{name} GDF — head()")
+    print('='*40)
+    print(gdf.head())
+
+
+print(any('consumption_per_unit' in col.lower() for col in steamdf.columns))
+
+
+
