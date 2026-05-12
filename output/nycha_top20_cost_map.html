@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_2f4dd343e82be28165ab931a53b540df {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_2f4dd343e82be28165ab931a53b540df" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_2f4dd343e82be28165ab931a53b540df = L.map(
+                "map_2f4dd343e82be28165ab931a53b540df",
+                {
+                    center: [40.728, -73.944],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 11,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_688b7333c8824484a57b4ba5d2a004a0 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_688b7333c8824484a57b4ba5d2a004a0.addTo(map_2f4dd343e82be28165ab931a53b540df);
+        
+    
+            var circle_marker_0c97e2ce89b12ee6f1489ddfabc85c2f = L.circleMarker(
+                [40.822099, -73.828593],
+                {"bubblingMouseEvents": true, "color": "#ffff00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffff00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.0, "stroke": true, "weight": 3}
+            ).addTo(map_2f4dd343e82be28165ab931a53b540df);
+        
+    
+            circle_marker_0c97e2ce89b12ee6f1489ddfabc85c2f.bindTooltip(
+                `<div>
+                     <b>RANDALL AVENUE-BALCOM AVENUE</b><br>TDS#: 245<br>Units: 230<br>Cost/unit: $7,942<br>Total charges: $1,826,639
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_23dadc14568b07f55676904fc344ed3c = L.circleMarker(
+                [40.749202, -74.002594],
+                {"bubblingMouseEvents": true, "color": "#fffe00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fffe00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.030607157946406, "stroke": true, "weight": 3}
+            ).addTo(map_2f4dd343e82be28165ab931a53b540df);
+        
+    
+            circle_marker_23dadc14568b07f55676904fc344ed3c.bindTooltip(
+                `<div>
+                     <b>ELLIOTT</b><br>TDS#: 15<br>Units: 483<br>Cost/unit: $8,005<br>Total charges: $3,866,263
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_55518c47307085f874f6e762ab239b45 = L.circleMarker(
+                [40.810983, -73.921979],
+                {"bubblingMouseEvents": true, "color": "#fff800", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fff800", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.395744827815376, "stroke": true, "weight": 3}
+            ).addTo(map_2f4dd343e82be28165ab931a53b540df);
+        
+    
+            circle_marker_55518c47307085f874f6e762ab239b45.bindTooltip(
+                `<div>
+                     <b>MOTT HAVEN</b><br>TDS#: 121<br>Units: 994<br>Cost/unit: $8,754<br>Total charges: $8,701,090
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_58be5665ce994a93513d8f1705400410 = L.circleMarker(
+                [40.651125, -73.894514],
+                {"bubblingMouseEvents": true, "color": "#fff700", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fff700", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.419173424731941, "stroke": true, "weight": 3}
+            ).addTo(map_2f4dd343e82be28165ab931a53b540df);
+        
+    
+            circle_marker_58be5665ce994a93513d8f1705400410.bindTooltip(
+                `<div>
+                     <b>BREUKELEN</b><br>TDS#: 56<br>Units: 1620<br>Cost/unit: $8,802<br>Total charges: $14,258,698
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5a7642697e88a103630bb2cffc748d64 = L.circleMarker(
+                [40.698201, -73.796355],
+                {"bubblingMouseEvents": true, "color": "#fff100", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fff100", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.782388315717823, "stroke": true, "weight": 3}
+            ).addTo(map_2f4dd343e82be28165ab931a53b540df);
+        
+    
+            circle_marker_5a7642697e88a103630bb2cffc748d64.bindTooltip(
+                `<div>
+                     <b>SOUTH JAMAICA II</b><br>TDS#: 66<br>Units: 718<br>Cost/unit: $9,547<br>Total charges: $6,854,493
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_22d51cf745e21c9f8f6604f518d9b238 = L.circleMarker(
+                [40.704848, -73.965955],
+                {"bubblingMouseEvents": true, "color": "#ffef00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffef00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.940870510596945, "stroke": true, "weight": 3}
+            ).addTo(map_2f4dd343e82be28165ab931a53b540df);
+        
+    
+            circle_marker_22d51cf745e21c9f8f6604f518d9b238.bindTooltip(
+                `<div>
+                     <b>TAYLOR STREET-WYTHE AVENUE</b><br>TDS#: 234<br>Units: 525<br>Cost/unit: $9,872<br>Total charges: $5,182,647
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_cafdfc078d64e3b1e7506d9cb46c7121 = L.circleMarker(
+                [40.760526, -73.936456],
+                {"bubblingMouseEvents": true, "color": "#ffee00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffee00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.95076568806484, "stroke": true, "weight": 3}
+            ).addTo(map_2f4dd343e82be28165ab931a53b540df);
+        
+    
+            circle_marker_cafdfc078d64e3b1e7506d9cb46c7121.bindTooltip(
+                `<div>
+                     <b>RAVENSWOOD</b><br>TDS#: 48<br>Units: 1976<br>Cost/unit: $9,892<br>Total charges: $19,546,599
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e6d29880b8d979d3c97aa9791ff2ab9b = L.circleMarker(
+                [40.575048, -73.987067],
+                {"bubblingMouseEvents": true, "color": "#ffee00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffee00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.958320497744976, "stroke": true, "weight": 3}
+            ).addTo(map_2f4dd343e82be28165ab931a53b540df);
+        
+    
+            circle_marker_e6d29880b8d979d3c97aa9791ff2ab9b.bindTooltip(
+                `<div>
+                     <b>CONEY ISLAND I (SITE 1B)</b><br>TDS#: 239<br>Units: 193<br>Cost/unit: $9,907<br>Total charges: $1,912,147
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_91a5815b773742e006d34e5a2a0396ed = L.circleMarker(
+                [40.818211, -73.849865],
+                {"bubblingMouseEvents": true, "color": "#ffec00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffec00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9.083549100558985, "stroke": true, "weight": 3}
+            ).addTo(map_2f4dd343e82be28165ab931a53b540df);
+        
+    
+            circle_marker_91a5815b773742e006d34e5a2a0396ed.bindTooltip(
+                `<div>
+                     <b>CASTLE HILL</b><br>TDS#: 80<br>Units: 2033<br>Cost/unit: $10,164<br>Total charges: $20,664,130
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d81f535edacb05583065ebd39c7968f6 = L.circleMarker(
+                [40.791771, -73.948266],
+                {"bubblingMouseEvents": true, "color": "#ffe300", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffe300", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9.646521731852225, "stroke": true, "weight": 3}
+            ).addTo(map_2f4dd343e82be28165ab931a53b540df);
+        
+    
+            circle_marker_d81f535edacb05583065ebd39c7968f6.bindTooltip(
+                `<div>
+                     <b>CLINTON</b><br>TDS#: 123<br>Units: 752<br>Cost/unit: $11,319<br>Total charges: $8,511,929
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_574e25830c6a8a7f7836bfeab0c4bbb9 = L.circleMarker(
+                [40.705768, -73.941061],
+                {"bubblingMouseEvents": true, "color": "#ffe000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffe000", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9.79002297348881, "stroke": true, "weight": 3}
+            ).addTo(map_2f4dd343e82be28165ab931a53b540df);
+        
+    
+            circle_marker_574e25830c6a8a7f7836bfeab0c4bbb9.bindTooltip(
+                `<div>
+                     <b>BORINQUEN PLAZA II</b><br>TDS#: 271<br>Units: 441<br>Cost/unit: $11,613<br>Total charges: $5,121,504
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a7637e5caf9d24975afd4c90baef36e6 = L.circleMarker(
+                [40.832874, -73.910226],
+                {"bubblingMouseEvents": true, "color": "#ffdc00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffdc00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10.035492524265402, "stroke": true, "weight": 3}
+            ).addTo(map_2f4dd343e82be28165ab931a53b540df);
+        
+    
+            circle_marker_a7637e5caf9d24975afd4c90baef36e6.bindTooltip(
+                `<div>
+                     <b>CLAREMONT REHAB (GROUP 2)</b><br>TDS#: 307<br>Units: 121<br>Cost/unit: $12,117<br>Total charges: $1,466,141
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_cb415de5c9a775e086cb8001d90da065 = L.circleMarker(
+                [40.820127, -73.868597],
+                {"bubblingMouseEvents": true, "color": "#ffd300", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffd300", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10.559289202873039, "stroke": true, "weight": 3}
+            ).addTo(map_2f4dd343e82be28165ab931a53b540df);
+        
+    
+            circle_marker_cb415de5c9a775e086cb8001d90da065.bindTooltip(
+                `<div>
+                     <b>CLASON POINT GARDENS</b><br>TDS#: 11<br>Units: 368<br>Cost/unit: $13,191<br>Total charges: $4,854,367
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f66beb09d9d9f53a49e78425295767d5 = L.circleMarker(
+                [40.679051, -73.980843],
+                {"bubblingMouseEvents": true, "color": "#ffd200", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffd200", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10.607089404230997, "stroke": true, "weight": 3}
+            ).addTo(map_2f4dd343e82be28165ab931a53b540df);
+        
+    
+            circle_marker_f66beb09d9d9f53a49e78425295767d5.bindTooltip(
+                `<div>
+                     <b>FHA REPOSSESSED HOUSES (GROUP IX)</b><br>TDS#: 283<br>Units: 30<br>Cost/unit: $13,289<br>Total charges: $398,678
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1a0d6058e27d1d656719772d698a859f = L.circleMarker(
+                [40.705614, -73.942151],
+                {"bubblingMouseEvents": true, "color": "#ffd100", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffd100", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10.660383759545992, "stroke": true, "weight": 3}
+            ).addTo(map_2f4dd343e82be28165ab931a53b540df);
+        
+    
+            circle_marker_1a0d6058e27d1d656719772d698a859f.bindTooltip(
+                `<div>
+                     <b>BORINQUEN PLAZA I</b><br>TDS#: 243<br>Units: 699<br>Cost/unit: $13,399<br>Total charges: $9,365,598
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0fe81e99b9648d3f5f044e097c6ea1aa = L.circleMarker(
+                [40.78847, -73.969184],
+                {"bubblingMouseEvents": true, "color": "#ffc300", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffc300", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11.479226103832591, "stroke": true, "weight": 3}
+            ).addTo(map_2f4dd343e82be28165ab931a53b540df);
+        
+    
+            circle_marker_0fe81e99b9648d3f5f044e097c6ea1aa.bindTooltip(
+                `<div>
+                     <b>WSUR (BROWNSTONES)</b><br>TDS#: 178<br>Units: 227<br>Cost/unit: $15,078<br>Total charges: $3,422,724
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_bd1bc932d832a360a6e6fa9ff7f8ebfb = L.circleMarker(
+                [40.671579, -73.874617],
+                {"bubblingMouseEvents": true, "color": "#ffbd00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffbd00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11.85033488096989, "stroke": true, "weight": 3}
+            ).addTo(map_2f4dd343e82be28165ab931a53b540df);
+        
+    
+            circle_marker_bd1bc932d832a360a6e6fa9ff7f8ebfb.bindTooltip(
+                `<div>
+                     <b>EAST NEW YORK CITY LINE</b><br>TDS#: 263<br>Units: 66<br>Cost/unit: $15,839<br>Total charges: $1,045,391
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_95d12cc4a98f34eae7d40645b0294006 = L.circleMarker(
+                [40.832773, -73.910282],
+                {"bubblingMouseEvents": true, "color": "#ffb700", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffb700", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12.179084740878569, "stroke": true, "weight": 3}
+            ).addTo(map_2f4dd343e82be28165ab931a53b540df);
+        
+    
+            circle_marker_95d12cc4a98f34eae7d40645b0294006.bindTooltip(
+                `<div>
+                     <b>CLAREMONT REHAB (GROUP 4)</b><br>TDS#: 335<br>Units: 158<br>Cost/unit: $16,514<br>Total charges: $2,609,140
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a6b634e0194599cad1936dddada9f642 = L.circleMarker(
+                [40.818443, -73.889276],
+                {"bubblingMouseEvents": true, "color": "#ff7300", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff7300", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 16.22139578858767, "stroke": true, "weight": 3}
+            ).addTo(map_2f4dd343e82be28165ab931a53b540df);
+        
+    
+            circle_marker_a6b634e0194599cad1936dddada9f642.bindTooltip(
+                `<div>
+                     <b>HUNTS POINT AVENUE REHAB</b><br>TDS#: 367<br>Units: 131<br>Cost/unit: $24,805<br>Total charges: $3,249,409
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_55263fb51f12ab59d68100a383349e83 = L.circleMarker(
+                [40.74249, -74.004658],
+                {"bubblingMouseEvents": true, "color": "#ff0000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff0000", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 23.0, "stroke": true, "weight": 3}
+            ).addTo(map_2f4dd343e82be28165ab931a53b540df);
+        
+    
+            circle_marker_55263fb51f12ab59d68100a383349e83.bindTooltip(
+                `<div>
+                     <b>FULTON</b><br>TDS#: 136<br>Units: 378<br>Cost/unit: $38,708<br>Total charges: $14,631,664
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+</script>
+</html>
