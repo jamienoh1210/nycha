@@ -8,13 +8,13 @@ from pathlib import Path
 import sys
 
 # Add colab_cleaning to path to import energy_processor
-sys.path.insert(0, str(Path(__file__).resolve().parent / "colab_cleaning"))
+sys.path.insert(0, str(Path(__file__).resolve().parent / "notebooks"))
 from energy_processor import load_combined_gdf
 
 base = Path(__file__).resolve().parent
 
 # Load the combined NYCHA+PLUTO base
-combined_gdf = load_combined_gdf(base / "cleaned_data/combined_nychares_pluto.csv")
+combined_gdf = load_combined_gdf(base / "data/processed/combined_nychares_pluto.csv")
 
 # ============================================================
 # Helper: process a raw energy CSV, filtering to 2024 only
@@ -104,33 +104,33 @@ print("=" * 60)
 print("Processing STEAM (2024 only)")
 print("=" * 60)
 steam_gdf, _ = process_2024_only(
-    base / "raw_data/Steam_Consumption_And_Cost_(2010_–_Sep_2025)_20260314.csv",
+    base / "data/raw/Steam_Consumption_And_Cost_(2010_–_Sep_2025)_20260314.csv",
     'Consumption (Mlbs)',
     combined_gdf,
 )
-steam_gdf.to_csv(base / "cleaned_data/combined_steam_2024.csv", index=False)
+steam_gdf.to_csv(base / "data/processed/combined_steam_2024.csv", index=False)
 print(f"  Saved {len(steam_gdf)} rows to combined_steam_2024.csv")
 
 print("\n" + "=" * 60)
 print("Processing ELECTRICITY (2024 only)")
 print("=" * 60)
 elec_gdf, _ = process_2024_only(
-    base / "raw_data/Electric_Consumption_And_Cost_(2010_-_Sep_2025)_20260314.csv",
+    base / "data/raw/Electric_Consumption_And_Cost_(2010_-_Sep_2025)_20260314.csv",
     'Consumption (KWH)',
     combined_gdf,
 )
-elec_gdf.to_csv(base / "cleaned_data/combined_electricity_2024.csv", index=False)
+elec_gdf.to_csv(base / "data/processed/combined_electricity_2024.csv", index=False)
 print(f"  Saved {len(elec_gdf)} rows to combined_electricity_2024.csv")
 
 print("\n" + "=" * 60)
 print("Processing HEATING GAS (2024 only)")
 print("=" * 60)
 gas_gdf, _ = process_2024_only(
-    base / "raw_data/Heating_Gas_Consumption_And_Cost_(2010_-__Sep_2025)_20260314.csv",
+    base / "data/raw/Heating_Gas_Consumption_And_Cost_(2010_-__Sep_2025)_20260314.csv",
     'Consumption (Therms)',
     combined_gdf,
 )
-gas_gdf.to_csv(base / "cleaned_data/combined_heating_gas_2024.csv", index=False)
+gas_gdf.to_csv(base / "data/processed/combined_heating_gas_2024.csv", index=False)
 print(f"  Saved {len(gas_gdf)} rows to combined_heating_gas_2024.csv")
 
 # ============================================================
@@ -141,9 +141,9 @@ print("Building combined_utilities_2024.csv")
 print("=" * 60)
 
 # Load the three CSVs
-steamdf = pd.read_csv(base / "cleaned_data/combined_steam_2024.csv")
-elecdf = pd.read_csv(base / "cleaned_data/combined_electricity_2024.csv")
-gasdf = pd.read_csv(base / "cleaned_data/combined_heating_gas_2024.csv")
+steamdf = pd.read_csv(base / "data/processed/combined_steam_2024.csv")
+elecdf = pd.read_csv(base / "data/processed/combined_electricity_2024.csv")
+gasdf = pd.read_csv(base / "data/processed/combined_heating_gas_2024.csv")
 
 # Calculate per-unit consumption (clean unitsres first)
 for gdf in [steamdf, elecdf, gasdf]:
@@ -216,7 +216,7 @@ units = units.fillna(pd.to_numeric(combined['unitstotal'].astype(str).str.replac
 combined['total_current_charges_per_unit'] = combined['total_current_charges'] / units
 
 # Save
-combined.to_csv(base / "cleaned_data/combined_utilities_2024.csv", index=False)
+combined.to_csv(base / "data/processed/combined_utilities_2024.csv", index=False)
 print(f"  Saved {len(combined)} rows to combined_utilities_2024.csv")
 
 # Quick sanity check
