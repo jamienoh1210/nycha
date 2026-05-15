@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_18d9114c9a1773043567cadfce9d2147 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_18d9114c9a1773043567cadfce9d2147" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_18d9114c9a1773043567cadfce9d2147 = L.map(
+                "map_18d9114c9a1773043567cadfce9d2147",
+                {
+                    center: [40.728, -73.944],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 11,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_01450bc1bfc9dbaa972e9c5cb56934c3 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_01450bc1bfc9dbaa972e9c5cb56934c3.addTo(map_18d9114c9a1773043567cadfce9d2147);
+        
+    
+            var circle_marker_691d22e47c217e2a51e9b5486ed46449 = L.circleMarker(
+                [40.577422, -73.990726],
+                {"bubblingMouseEvents": true, "color": "#ffff00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffff00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.0, "stroke": true, "weight": 3}
+            ).addTo(map_18d9114c9a1773043567cadfce9d2147);
+        
+    
+            circle_marker_691d22e47c217e2a51e9b5486ed46449.bindTooltip(
+                `<div>
+                     <b>CAREY GARDENS</b><br>TDS#: 166<br>Units: 686<br>MMBtu/unit: 479<br>Total MMBtu: 328,498
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_54d9586bf80b2b1f962a342804b63adf = L.circleMarker(
+                [40.592703, -73.785864],
+                {"bubblingMouseEvents": true, "color": "#fff700", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fff700", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.425392126915797, "stroke": true, "weight": 3}
+            ).addTo(map_18d9114c9a1773043567cadfce9d2147);
+        
+    
+            circle_marker_54d9586bf80b2b1f962a342804b63adf.bindTooltip(
+                `<div>
+                     <b>OCEAN BAY APARTMENTS (OCEANSIDE)</b><br>TDS#: 51<br>Units: 418<br>MMBtu/unit: 502<br>Total MMBtu: 210,040
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ba3a9e1dfe303ff190e365d12ecd9e1f = L.circleMarker(
+                [40.597189, -73.938018],
+                {"bubblingMouseEvents": true, "color": "#fff700", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fff700", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.447145795009032, "stroke": true, "weight": 3}
+            ).addTo(map_18d9114c9a1773043567cadfce9d2147);
+        
+    
+            circle_marker_ba3a9e1dfe303ff190e365d12ecd9e1f.bindTooltip(
+                `<div>
+                     <b>NOSTRAND</b><br>TDS#: 43<br>Units: 1148<br>MMBtu/unit: 504<br>Total MMBtu: 578,242
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_9f772bd044f265e320875d899943592a = L.circleMarker(
+                [40.818211, -73.849865],
+                {"bubblingMouseEvents": true, "color": "#fff600", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fff600", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.524221251466889, "stroke": true, "weight": 3}
+            ).addTo(map_18d9114c9a1773043567cadfce9d2147);
+        
+    
+            circle_marker_9f772bd044f265e320875d899943592a.bindTooltip(
+                `<div>
+                     <b>CASTLE HILL</b><br>TDS#: 80<br>Units: 2033<br>MMBtu/unit: 508<br>Total MMBtu: 1,032,716
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_75239fbbb1b7c976180eb9ecd098a5e5 = L.circleMarker(
+                [40.666699, -73.898531],
+                {"bubblingMouseEvents": true, "color": "#fff000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fff000", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.847019012364976, "stroke": true, "weight": 3}
+            ).addTo(map_18d9114c9a1773043567cadfce9d2147);
+        
+    
+            circle_marker_75239fbbb1b7c976180eb9ecd098a5e5.bindTooltip(
+                `<div>
+                     <b>UNITY PLAZA (SITES 4-27)</b><br>TDS#: 261<br>Units: 600<br>MMBtu/unit: 526<br>Total MMBtu: 315,543
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_06edbec548d62a64f8453072551fb69d = L.circleMarker(
+                [40.668192, -73.867445],
+                {"bubblingMouseEvents": true, "color": "#fff000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fff000", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.852170494326208, "stroke": true, "weight": 3}
+            ).addTo(map_18d9114c9a1773043567cadfce9d2147);
+        
+    
+            circle_marker_06edbec548d62a64f8453072551fb69d.bindTooltip(
+                `<div>
+                     <b>PINK</b><br>TDS#: 89<br>Units: 1919<br>MMBtu/unit: 526<br>Total MMBtu: 1,009,761
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_920166f1bab4f76aa7172ce7f4cbd089 = L.circleMarker(
+                [40.760526, -73.936456],
+                {"bubblingMouseEvents": true, "color": "#ffed00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffed00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9.03542791548455, "stroke": true, "weight": 3}
+            ).addTo(map_18d9114c9a1773043567cadfce9d2147);
+        
+    
+            circle_marker_920166f1bab4f76aa7172ce7f4cbd089.bindTooltip(
+                `<div>
+                     <b>RAVENSWOOD</b><br>TDS#: 48<br>Units: 1976<br>MMBtu/unit: 536<br>Total MMBtu: 1,059,867
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_62a97b55508bfcd38dbbfa5959a2f53d = L.circleMarker(
+                [40.791771, -73.948266],
+                {"bubblingMouseEvents": true, "color": "#ffe100", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffe100", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9.74987203904344, "stroke": true, "weight": 3}
+            ).addTo(map_18d9114c9a1773043567cadfce9d2147);
+        
+    
+            circle_marker_62a97b55508bfcd38dbbfa5959a2f53d.bindTooltip(
+                `<div>
+                     <b>CLINTON</b><br>TDS#: 123<br>Units: 752<br>MMBtu/unit: 576<br>Total MMBtu: 433,191
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2cac1bfc87bd22ce3525cb75f7e0b04e = L.circleMarker(
+                [40.705768, -73.941061],
+                {"bubblingMouseEvents": true, "color": "#ffdd00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffdd00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9.999810467226203, "stroke": true, "weight": 3}
+            ).addTo(map_18d9114c9a1773043567cadfce9d2147);
+        
+    
+            circle_marker_2cac1bfc87bd22ce3525cb75f7e0b04e.bindTooltip(
+                `<div>
+                     <b>BORINQUEN PLAZA II</b><br>TDS#: 271<br>Units: 441<br>MMBtu/unit: 590<br>Total MMBtu: 260,161
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7ee2ba24c443b5c20b886369d8213d67 = L.circleMarker(
+                [40.832874, -73.910226],
+                {"bubblingMouseEvents": true, "color": "#ffd500", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffd500", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10.416960929805693, "stroke": true, "weight": 3}
+            ).addTo(map_18d9114c9a1773043567cadfce9d2147);
+        
+    
+            circle_marker_7ee2ba24c443b5c20b886369d8213d67.bindTooltip(
+                `<div>
+                     <b>CLAREMONT REHAB (GROUP 2)</b><br>TDS#: 307<br>Units: 121<br>MMBtu/unit: 613<br>Total MMBtu: 74,186
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_25ae10a7be1c9817aee58f9d183e1f11 = L.circleMarker(
+                [40.704848, -73.965955],
+                {"bubblingMouseEvents": true, "color": "#ffc700", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffc700", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11.244631540127829, "stroke": true, "weight": 3}
+            ).addTo(map_18d9114c9a1773043567cadfce9d2147);
+        
+    
+            circle_marker_25ae10a7be1c9817aee58f9d183e1f11.bindTooltip(
+                `<div>
+                     <b>TAYLOR STREET-WYTHE AVENUE</b><br>TDS#: 234<br>Units: 525<br>MMBtu/unit: 659<br>Total MMBtu: 346,014
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4bb133f6bc080f94ba037849975c1276 = L.circleMarker(
+                [40.78847, -73.969184],
+                {"bubblingMouseEvents": true, "color": "#ffc500", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffc500", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11.402728865110726, "stroke": true, "weight": 3}
+            ).addTo(map_18d9114c9a1773043567cadfce9d2147);
+        
+    
+            circle_marker_4bb133f6bc080f94ba037849975c1276.bindTooltip(
+                `<div>
+                     <b>WSUR (BROWNSTONES)</b><br>TDS#: 178<br>Units: 227<br>MMBtu/unit: 668<br>Total MMBtu: 151,603
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c23a7bc50c8044d8133c293913685e49 = L.circleMarker(
+                [40.832773, -73.910282],
+                {"bubblingMouseEvents": true, "color": "#ffa900", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffa900", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 13.049380673769381, "stroke": true, "weight": 3}
+            ).addTo(map_18d9114c9a1773043567cadfce9d2147);
+        
+    
+            circle_marker_c23a7bc50c8044d8133c293913685e49.bindTooltip(
+                `<div>
+                     <b>CLAREMONT REHAB (GROUP 4)</b><br>TDS#: 335<br>Units: 158<br>MMBtu/unit: 759<br>Total MMBtu: 119,972
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_49dbf845e84a094655e3337a328c09d3 = L.circleMarker(
+                [40.671579, -73.874617],
+                {"bubblingMouseEvents": true, "color": "#ff9d00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff9d00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 13.749988143148006, "stroke": true, "weight": 3}
+            ).addTo(map_18d9114c9a1773043567cadfce9d2147);
+        
+    
+            circle_marker_49dbf845e84a094655e3337a328c09d3.bindTooltip(
+                `<div>
+                     <b>EAST NEW YORK CITY LINE</b><br>TDS#: 263<br>Units: 66<br>MMBtu/unit: 798<br>Total MMBtu: 52,683
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1faad87d8f8ea6622f7b3337bddf2f69 = L.circleMarker(
+                [40.651125, -73.894514],
+                {"bubblingMouseEvents": true, "color": "#ff9600", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff9600", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 14.118656283361643, "stroke": true, "weight": 3}
+            ).addTo(map_18d9114c9a1773043567cadfce9d2147);
+        
+    
+            circle_marker_1faad87d8f8ea6622f7b3337bddf2f69.bindTooltip(
+                `<div>
+                     <b>BREUKELEN</b><br>TDS#: 56<br>Units: 1620<br>MMBtu/unit: 819<br>Total MMBtu: 1,326,303
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_40ca2c032d3cdec994cc639f1ceeaaa9 = L.circleMarker(
+                [40.575048, -73.987067],
+                {"bubblingMouseEvents": true, "color": "#ff9200", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff9200", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 14.360769886629956, "stroke": true, "weight": 3}
+            ).addTo(map_18d9114c9a1773043567cadfce9d2147);
+        
+    
+            circle_marker_40ca2c032d3cdec994cc639f1ceeaaa9.bindTooltip(
+                `<div>
+                     <b>CONEY ISLAND I (SITE 1B)</b><br>TDS#: 239<br>Units: 193<br>MMBtu/unit: 832<br>Total MMBtu: 160,606
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_61ad7cf2122c781555b8122df031c499 = L.circleMarker(
+                [40.698201, -73.796355],
+                {"bubblingMouseEvents": true, "color": "#ff6900", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff6900", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 16.8234170216544, "stroke": true, "weight": 3}
+            ).addTo(map_18d9114c9a1773043567cadfce9d2147);
+        
+    
+            circle_marker_61ad7cf2122c781555b8122df031c499.bindTooltip(
+                `<div>
+                     <b>SOUTH JAMAICA II</b><br>TDS#: 66<br>Units: 718<br>MMBtu/unit: 969<br>Total MMBtu: 695,695
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_234a0ddd8dcec6148ed538fd9517ae02 = L.circleMarker(
+                [40.679051, -73.980843],
+                {"bubblingMouseEvents": true, "color": "#ff6700", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff6700", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 16.917225817201622, "stroke": true, "weight": 3}
+            ).addTo(map_18d9114c9a1773043567cadfce9d2147);
+        
+    
+            circle_marker_234a0ddd8dcec6148ed538fd9517ae02.bindTooltip(
+                `<div>
+                     <b>FHA REPOSSESSED HOUSES (GROUP IX)</b><br>TDS#: 283<br>Units: 30<br>MMBtu/unit: 974<br>Total MMBtu: 29,224
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_9971825641958fc7d143551eec6df534 = L.circleMarker(
+                [40.74249, -74.004658],
+                {"bubblingMouseEvents": true, "color": "#ff1c00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff1c00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 21.30624108729252, "stroke": true, "weight": 3}
+            ).addTo(map_18d9114c9a1773043567cadfce9d2147);
+        
+    
+            circle_marker_9971825641958fc7d143551eec6df534.bindTooltip(
+                `<div>
+                     <b>FULTON</b><br>TDS#: 136<br>Units: 378<br>MMBtu/unit: 1,218<br>Total MMBtu: 460,374
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c88a4fbc869b9a7cebddc7d8bd2d025c = L.circleMarker(
+                [40.818443, -73.889276],
+                {"bubblingMouseEvents": true, "color": "#ff0000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff0000", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 23.0, "stroke": true, "weight": 3}
+            ).addTo(map_18d9114c9a1773043567cadfce9d2147);
+        
+    
+            circle_marker_c88a4fbc869b9a7cebddc7d8bd2d025c.bindTooltip(
+                `<div>
+                     <b>HUNTS POINT AVENUE REHAB</b><br>TDS#: 367<br>Units: 131<br>MMBtu/unit: 1,312<br>Total MMBtu: 171,872
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+</script>
+</html>

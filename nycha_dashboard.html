@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NYCHA Portfolio Dashboard · 2024</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#0d0f14; --surface:#13161e; --surface2:#1a1e2a; --border:#252b3b;
+  --accent:#e8c547; --accent2:#4fd1c5; --accent3:#f87171; --accent4:#a78bfa;
+  --text:#e8eaf0; --muted:#6b7280; --subtle:#9ca3af;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;min-height:100vh}
+header{padding:48px 60px 32px;border-bottom:1px solid var(--border);display:flex;align-items:flex-end;justify-content:space-between;animation:fadeUp .6s ease both}
+.header-left h1{font-family:'Playfair Display',serif;font-size:3rem;font-weight:900;line-height:1;letter-spacing:-1px}
+.header-left h1 span{color:var(--accent)}
+.header-left p{margin-top:8px;color:var(--muted);font-size:.85rem;font-family:'DM Mono',monospace;letter-spacing:.05em}
+.header-right{text-align:right;font-family:'DM Mono',monospace;font-size:.75rem;color:var(--muted);line-height:1.8}
+.tag{display:inline-block;background:var(--accent);color:#000;font-family:'DM Mono',monospace;font-size:.65rem;font-weight:500;letter-spacing:.1em;padding:2px 8px;border-radius:2px;text-transform:uppercase;margin-bottom:12px}
+.kpi-strip{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--border)}
+.kpi{background:var(--surface);padding:28px 32px;animation:fadeUp .6s ease both}
+.kpi-label{font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.kpi-value{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;line-height:1}
+.kpi-sub{margin-top:6px;font-size:.75rem;color:var(--muted)}
+.yellow{color:var(--accent)} .teal{color:var(--accent2)} .red{color:var(--accent3)} .purple{color:var(--accent4)}
+.grid-main{display:grid;grid-template-columns:repeat(12,1fr);gap:1px;background:var(--border)}
+.panel{background:var(--surface);padding:28px 32px;animation:fadeUp .7s ease both}
+.panel-sm{grid-column:span 4} .panel-md{grid-column:span 6} .panel-lg{grid-column:span 8} .panel-full{grid-column:span 12}
+.panel-title{font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+.panel-headline{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;margin-bottom:20px;line-height:1.2}
+canvas{max-height:220px}
+.borough-table{width:100%;border-collapse:collapse}
+.borough-table th{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-align:left;padding:0 0 10px;border-bottom:1px solid var(--border)}
+.borough-table td{padding:10px 0;font-size:.85rem;border-bottom:1px solid var(--border);vertical-align:middle}
+.borough-table tr:last-child td{border-bottom:none}
+.bar-wrap{width:100px;height:6px;background:var(--surface2);border-radius:3px;overflow:hidden;display:inline-block;vertical-align:middle;margin-right:8px}
+.bar-fill{height:100%;border-radius:3px}
+.mono{font-family:'DM Mono',monospace;font-size:.8rem;color:var(--subtle)}
+.insight-card{background:var(--surface2);border:1px solid var(--border);border-radius:4px;padding:16px;margin-bottom:10px}
+.insight-card .label{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.insight-card .val{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700}
+.insight-card .desc{font-size:.72rem;color:var(--muted);margin-top:4px}
+.legend{display:flex;gap:16px;margin-bottom:16px;flex-wrap:wrap}
+.legend-item{display:flex;align-items:center;font-size:.72rem;color:var(--subtle);font-family:'DM Mono',monospace}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px}
+footer{padding:20px 60px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+footer p{font-family:'DM Mono',monospace;font-size:.65rem;color:var(--muted);letter-spacing:.05em}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-left">
+    <div class="tag">2024 Annual Report</div>
+    <h1>NYCHA<br><span>Portfolio</span></h1>
+    <p>NEW YORK CITY HOUSING AUTHORITY · BUILDING & ENERGY ANALYSIS</p>
+  </div>
+  <div class="header-right">
+    <div>DATA SOURCES: NYCHA RESIDENTIAL, PLUTO, UTILITIES 2024</div>
+    <div id="hdr-sub"></div>
+    <div>5 BOROUGHS · FY 2024</div>
+  </div>
+</header>
+
+<div class="kpi-strip">
+  <div class="kpi">
+    <div class="kpi-label">Total Developments</div>
+    <div class="kpi-value yellow" id="kpi-devs"></div>
+    <div class="kpi-sub">Across 5 boroughs</div>
+  </div>
+  <div class="kpi">
+    <div class="kpi-label">Residential Buildings</div>
+    <div class="kpi-value" id="kpi-bldgs"></div>
+    <div class="kpi-sub">Public housing stock</div>
+  </div>
+  <div class="kpi">
+    <div class="kpi-label">Median Monthly Rent</div>
+    <div class="kpi-value teal" id="kpi-rent"></div>
+    <div class="kpi-sub">Gross across portfolio</div>
+  </div>
+  <div class="kpi">
+    <div class="kpi-label">Energy Cost / Unit</div>
+    <div class="kpi-value red" id="kpi-energy"></div>
+    <div class="kpi-sub">Median annual, 2024</div>
+  </div>
+  <div class="kpi">
+    <div class="kpi-label">Median Year Built</div>
+    <div class="kpi-value purple" id="kpi-year"></div>
+    <div class="kpi-sub">Aging housing stock</div>
+  </div>
+</div>
+
+<div class="grid-main">
+
+  <div class="panel panel-md">
+    <div class="panel-title">Borough Snapshot</div>
+    <div class="panel-headline">Where NYCHA lives</div>
+    <table class="borough-table">
+      <thead><tr><th>Borough</th><th>Buildings</th><th>Share</th></tr></thead>
+      <tbody id="borough-rows"></tbody>
+    </table>
+  </div>
+
+  <div class="panel panel-md">
+    <div class="panel-title">Energy Mix</div>
+    <div class="panel-headline">Avg consumption per unit</div>
+    <div class="legend">
+      <span class="legend-item"><span class="dot" style="background:#e8c547"></span>Electricity</span>
+      <span class="legend-item"><span class="dot" style="background:#4fd1c5"></span>Gas</span>
+      <span class="legend-item"><span class="dot" style="background:#a78bfa"></span>Steam</span>
+    </div>
+    <canvas id="energyDonut"></canvas>
+  </div>
+
+  <div class="panel panel-lg">
+    <div class="panel-title">Construction Timeline</div>
+    <div class="panel-headline">When was NYCHA's housing stock built?</div>
+    <canvas id="yearChart"></canvas>
+  </div>
+
+  <div class="panel panel-sm">
+    <div class="panel-title">Energy Intensity</div>
+    <div class="panel-headline">Key stats</div>
+    <div class="insight-card">
+      <div class="label">Highest Elec. Consumption</div>
+      <div class="val yellow" id="top-elec-val"></div>
+      <div class="desc" id="top-elec-name"></div>
+    </div>
+    <div class="insight-card">
+      <div class="label">Avg Gas / Unit</div>
+      <div class="val teal" id="avg-gas"></div>
+      <div class="desc">therms annually</div>
+    </div>
+  </div>
+
+  <div class="panel panel-full">
+    <div class="panel-title">Utility Cost by Borough</div>
+    <div class="panel-headline">Total annual charges · electricity, gas & steam ($000s)</div>
+    <canvas id="boroughEnergyChart" style="max-height:200px"></canvas>
+  </div>
+
+  <div class="panel panel-md">
+    <div class="panel-title">Program Type</div>
+    <div class="panel-headline">Federal vs other programs</div>
+    <canvas id="programChart"></canvas>
+  </div>
+
+  <div class="panel panel-md">
+    <div class="panel-title">Rent Distribution</div>
+    <div class="panel-headline">Monthly gross rent across developments</div>
+    <canvas id="rentChart"></canvas>
+  </div>
+
+</div>
+
+<footer>
+  <p>NYCHA PORTFOLIO ANALYSIS · DATA AS OF 2024</p>
+  <p>BUILT WITH PYTHON · PANDAS · GEOPANDAS · CHART.JS</p>
+</footer>
+
+<script>
+const DATA = {"kpis": {"total_developments": 346, "total_buildings": 2961, "avg_rent": 607, "avg_energy_cost_per_unit": 3584, "median_year": 1969}, "borough_counts": [{"borough": "BROOKLYN", "count": 981}, {"borough": "BRONX", "count": 697}, {"borough": "MANHATTAN", "count": 596}, {"borough": "QUEENS", "count": 586}, {"borough": "STATEN ISLAND", "count": 101}], "energy_mix": {"labels": ["Electricity", "Gas", "Steam"], "values": [11463.4, 2089.0, 82.7]}, "decade_counts": {"labels": ["<1940", "1940s", "1950s", "1960s", "1970s", "1980s", "1990s", "2000s", "2010s+"], "values": [5, 21, 67, 83, 83, 55, 24, 2, 0]}, "util_borough": [{"borough": "Bronx", "elec": 86081.0, "gas": 102494.0, "steam": 0.0}, {"borough": "Brooklyn", "elec": 100372.0, "gas": 51077.0, "steam": 0.0}, {"borough": "Manhattan", "elec": 93164.0, "gas": 90836.0, "steam": 24098.0}, {"borough": "Queens", "elec": 35187.0, "gas": 36909.0, "steam": 0.0}, {"borough": "Staten Island", "elec": 5837.0, "gas": 3129.0, "steam": 0.0}], "program": {"labels": ["FEDERAL", "MIXED FINANCE/LLC1", "MIXED FINANCE/LLC2", "MIXED FINANCE/NON-NYCHA DEVELOPMENT", "MHOP", "MIXED FINANCE"], "values": [315, 13, 8, 6, 3, 1]}, "rent": {"labels": ["<$400", "$400\u2013500", "$500\u2013600", "$600\u2013700", "$700\u2013800", ">$800"], "values": [34, 34, 82, 145, 31, 12]}, "top_elec": {"name": "FULTON", "value": 209670.0}, "avg_gas_per_unit": 2089.0};
+
+// Fill KPIs
+const k = DATA.kpis;
+document.getElementById('kpi-devs').textContent   = k.total_developments.toLocaleString();
+document.getElementById('kpi-bldgs').textContent  = k.total_buildings.toLocaleString();
+document.getElementById('kpi-rent').textContent   = '$' + k.avg_rent.toLocaleString();
+document.getElementById('kpi-energy').textContent = '$' + k.avg_energy_cost_per_unit.toLocaleString();
+document.getElementById('kpi-year').textContent   = k.median_year;
+document.getElementById('hdr-sub').textContent    = k.total_buildings.toLocaleString() + ' BUILDINGS · ' + k.total_developments + ' DEVELOPMENTS';
+
+// Borough table
+const colors = ['#e8c547','#4fd1c5','#a78bfa','#f87171','#fb923c'];
+const total  = DATA.borough_counts.reduce((s,b) => s + b.count, 0);
+const tbody  = document.getElementById('borough-rows');
+DATA.borough_counts.forEach((b, i) => {
+  const pct = (b.count / total * 100).toFixed(1);
+  tbody.innerHTML += `<tr>
+    <td style="font-weight:500">${b.borough}</td>
+    <td><span class="mono">${b.count.toLocaleString()}</span></td>
+    <td>
+      <div class="bar-wrap"><div class="bar-fill" style="width:${pct}%;background:${colors[i]}"></div></div>
+      <span class="mono">${pct}%</span>
+    </td>
+  </tr>`;
+});
+
+// Energy insight cards
+const te = DATA.top_elec;
+document.getElementById('top-elec-val').textContent  = te.value.toLocaleString() + ' kWh';
+document.getElementById('top-elec-name').textContent = 'per unit · ' + te.name;
+document.getElementById('avg-gas').textContent       = DATA.avg_gas_per_unit.toLocaleString();
+
+Chart.defaults.color      = '#6b7280';
+Chart.defaults.borderColor = '#252b3b';
+Chart.defaults.font.family = "'DM Mono', monospace";
+Chart.defaults.font.size   = 11;
+
+// Energy donut
+new Chart(document.getElementById('energyDonut'), {
+  type: 'doughnut',
+  data: {
+    labels: DATA.energy_mix.labels,
+    datasets: [{ data: DATA.energy_mix.values, backgroundColor: ['#e8c547','#4fd1c5','#a78bfa'], borderWidth: 0, hoverOffset: 6 }]
+  },
+  options: { cutout: '70%', plugins: { legend: { display: false } } }
+});
+
+// Year built
+const peak = Math.max(...DATA.decade_counts.values);
+new Chart(document.getElementById('yearChart'), {
+  type: 'bar',
+  data: {
+    labels: DATA.decade_counts.labels,
+    datasets: [{
+      data: DATA.decade_counts.values,
+      backgroundColor: DATA.decade_counts.values.map(v => v === peak ? '#e8c547' : '#1a1e2a'),
+      borderColor:     DATA.decade_counts.values.map(v => v === peak ? '#e8c547' : '#4fd1c5'),
+      borderWidth: 1, borderRadius: 2
+    }]
+  },
+  options: {
+    plugins: { legend: { display: false }, tooltip: { callbacks: { label: ctx => ' ' + ctx.raw + ' developments' } } },
+    scales: { x: { grid: { display: false } }, y: { grid: { color: '#1a1e2a' } } }
+  }
+});
+
+// Borough energy stacked bar
+const ub = DATA.util_borough;
+new Chart(document.getElementById('boroughEnergyChart'), {
+  type: 'bar',
+  data: {
+    labels: ub.map(r => r.borough),
+    datasets: [
+      { label: 'Electricity', data: ub.map(r => r.elec),  backgroundColor: '#e8c547', borderRadius: 2, stack: 'stack' },
+      { label: 'Gas',         data: ub.map(r => r.gas),   backgroundColor: '#4fd1c5', borderRadius: 2, stack: 'stack' },
+      { label: 'Steam',       data: ub.map(r => r.steam), backgroundColor: '#a78bfa', borderRadius: 2, stack: 'stack' },
+    ]
+  },
+  options: {
+    plugins: { legend: { display: true, position: 'top', labels: { boxWidth: 10, padding: 16 } }, tooltip: { callbacks: { label: ctx => ' ' + ctx.dataset.label + ': $' + ctx.raw.toLocaleString() + 'K' } } },
+    scales: { x: { grid: { display: false }, stacked: true }, y: { grid: { color: '#1a1e2a' }, stacked: true, ticks: { callback: v => '$' + v + 'K' } } }
+  }
+});
+
+// Program type
+new Chart(document.getElementById('programChart'), {
+  type: 'pie',
+  data: {
+    labels: DATA.program.labels,
+    datasets: [{ data: DATA.program.values, backgroundColor: ['#e8c547','#4fd1c5','#a78bfa','#f87171','#fb923c','#34d399'], borderWidth: 0, hoverOffset: 4 }]
+  },
+  options: { plugins: { legend: { position: 'right', labels: { boxWidth: 10, padding: 12, font: { size: 10 } } } } }
+});
+
+// Rent distribution
+new Chart(document.getElementById('rentChart'), {
+  type: 'bar',
+  data: {
+    labels: DATA.rent.labels,
+    datasets: [{ label: 'Developments', data: DATA.rent.values, backgroundColor: '#4fd1c5', borderRadius: 2 }]
+  },
+  options: {
+    plugins: { legend: { display: false }, tooltip: { callbacks: { label: ctx => ' ' + ctx.raw + ' developments' } } },
+    scales: { x: { grid: { display: false } }, y: { grid: { color: '#1a1e2a' } } }
+  }
+});
+</script>
+</body>
+</html>
